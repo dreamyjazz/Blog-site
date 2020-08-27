@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edgy">
+    <title>Admin Dashboard</title>
+    <!--Costume style-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Font awesome icons-->
+    <link rel="stylesheet" href="/css/all.css">
+    <!--Owl carousel Library-->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+</head>
+<body>
+  
+    <!--=============The loading section===========-->
+    <div class="loader_bg">
+        <h2>Loading ... !</h2>
+        <div class="loader">
+        </div>
+    </div>
+     <!--====x=========The loading section=====x======-->
+     <input type="checkbox" name="" id="check">
+     <label for="check">
+         <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+   <!--=====The admin Dashboard ==========-->
+
+<div class="admin-sidebar">
+    <header>
+        <i class="fas fa-user-lock"></i> <span>Admin</span>
+    </header>
+    <ul>
+        <li><a href="/"><i class="fas fa-desktop"></i> <span>&nbsp; Home</span> </a></li>
+        <li><a href="/admin/dashboard" class="current-tab"><i class="fas fa-pencil-alt"></i><span>&nbsp; New Post</span></a></li>
+       <li><a href="/admin/works"><i class="fas fa-book-reader"></i> <span>&nbsp;Add Work</span></a></li>
+		<li><a href="/admin/update-current-read"> <i class="far fa-bookmark"></i><span>&nbsp;Update C.R</span></a></li>
+        <li><a href="/admin/edit/page=1"><i class="fas fa-desktop"></i> <span>&nbsp; Edit Posts</span></a></li>
+        <li><a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> <span>&nbsp; Log Out</span></a></li>
+    </ul>
+</div>
+  <!--===x==The admin Dashboard =====x=====-->
+
+    <div class="add-book-main-container" style="background-image: url(https://images.unsplash.com/photo-1560092056-5669e776fc68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1504&q=80);">
+        <div class="add-book-container">
+        <h2>Add a new Post! </h2>
+        <form method="POST" action="/blogs">
+        <div class="row100">
+            <div class="col">
+                <div class="input-box ">
+                    <input type="text" name="Blog[title]" id="" required >
+                    <span class="text">
+                       Post Title
+                    </span>
+                    <span class="line">
+                  
+                  </span>
+                </div>
+            </div>
+			      <div class="col">
+                <div class="input-box ">
+                    <input type="text" name="Blog[postSummary]" id="" required >
+                    <span class="text">
+                       Post Summary
+                    </span>
+                    <span class="line">
+                  
+                  </span>
+                </div>
+            </div>
+            <div class="col">
+              <div class="input-box">
+                  <input type="text" name="Blog[blogPhoto]" id="" required >
+                  <span class="text">
+                    Image URL Link
+                  </span>
+                  <span class="line">
+                  
+                  </span>
+              </div>
+          </div>
+          <div class="col">
+              <div class="input-box">
+                  <input type="text" name="Blog[tags]" id="" required >
+                  <span class="text">
+                     Tags
+                  </span>
+                  <span class="line">
+                  
+                  </span>
+              </div>
+          </div>
+          <div class="row100">
+              <div class="col">
+                  <div class="input-box text-area">
+                      <textarea   required="required" name="Blog[blogBody]" id=""></textarea>
+                      <span class="text">
+                       Post Content in here 
+                      </span>
+                      <span class="line"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="row100">
+              <div class="col">
+                  <input type="submit" value="Post!">
+              </div>
+          </div>
+      </form>
+        </div>
+    </div>
+
+
+
+<!--========x=========-The main Content-========x==================-->
+
+
+    <!--Pinterest Javascript-->
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<!--Jquery library -->
+<script src="/js/jquery3.5.1.min.js"></script>
+<!--Costume javascript-->
+<script src="/js/main.js"></script>
+<!--Owl Carousel library-->
+<script src="/js/owl.carousel.js"></script>
+
+</body>
+</html>

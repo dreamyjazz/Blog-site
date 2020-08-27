@@ -1,0 +1,208 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edgy">
+    <title>All Blog Posts</title>
+    <!--Costume style-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Font awesome icons-->
+    <link rel="stylesheet" href="/css/all.css">
+    <!--Owl carousel Library-->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+</head>
+<body>
+  
+    <!--=============The loading section===========-->
+    <div class="loader_bg">
+        <h2>Loading ... !</h2>
+        <div class="loader">
+        </div>
+    </div>
+    <!--==x======x=====The loading section===x====x====-->
+     <!------------------------------------------------------- Navigation------------------------------------------------>
+<nav class="nav">
+    <div class="nav-menu flex-row">
+        <div class="nav-brand">
+            <a href="#" class="text-gray">
+                <img id="logo1" src="/assets/logo.png">
+                <img id="logo2" src="/assets/logo2.png" >
+            </a>
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icon">
+                <i class="fas fa-hamburger"></i>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-items">
+                <li class="nav-link"><a href="/" ><i class="fas fa-home"></i> &nbsp;Home</a></li>
+                <li class="nav-link"><a href="/blog/page=1" class="current"><i class="fas fa-feather-alt"></i> &nbsp;Blog</a></li>
+                <li class="nav-link"><a href="/about"><i class="far fa-smile-beam"></i> &nbsp;About</a></li>
+                <li class="nav-link"><a href="#contact" id="contact-link"><i class="fas fa-mobile-alt"></i> &nbsp;Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="social text-gray">
+               <a href="https://www.facebook.com/Sombre.huh/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/dream_.y/" target="_blank"> <i class="fab fa-instagram"></i></a>
+                 <a href="#pinterest-board"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-------------x-------------x----------------------------- Navigation----------x-----------------------x--------------->
+  <!--=====================xPage title section=========-->
+  <main>
+    <!--Site title section-->
+    <section id="first-section" class="site-title" style="background-image: url(/assets/All-posts.jpg);">
+        <div class="site-background">
+            <h3>All the</h3>
+            <h1 class="bold-headings">Blog Posts</h1>
+            <button class="btn"><a href="#blog">Read More! <span><i class="far fa-arrow-alt-circle-down"></i></span></a></button>
+        </div>
+    </section>
+    <!--=================x====xPage title section=======x======-->
+<!--=======Journal Content==========-->
+<section id="blog" class="container">
+    <div class="site-content">
+       <div class="posts">
+           <div class="center">
+			    <%if(!tags){%>
+               <p class="simple">Diffrent Blog posts for diffrent days! i write on various subjects </p>
+		   		<%}else{%>
+			   
+			   	     <p class="simple">Posts under the tag : <%=thisTag%></p>
+			   <%}%>
+			   
+		   </div>
+     <%for(var i =0; i< results.length; i++){%>
+           <div class="post-content">
+               <div class="post-image">
+                   <div>
+                       <img class="img" src="<%=results[i].blogPhoto%>" alt="">
+                   </div>
+                  <div class="post-info flex-row">
+                      <span><i class="fas fa-user"></i>&nbsp;&nbsp;Admin</span>
+                      <span><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;<%=results[i].createdAt%></span>
+                  </div>
+               </div>
+               <div class="post-title">
+                   <a href="#"><%=results[i].title%></a>
+                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab saepe optio molestiae accusantium libero soluta quos reiciendis possimus velit inventore eum, qui
+                   </p>
+                  <a href="/blog/<%=results[i]._id%>"> 
+					  <button class=" cool-btn">Read More &nbsp;
+						  <i class="fas fa-arrow-right"></i></button>
+				   </a>
+               </div>
+               
+           </div>
+		   <br>
+		   <%}%>
+           <div class="pagination flex-row">
+			   <%if(!tags){%>
+               <a href="/blog/page=<%=prevPage%>"><i class="fas fa-chevron-left"></i></a>
+             <a href="/blog/page=<%=nextPage%>"><i class="fas fa-chevron-right"></i></a>
+			   <%} else{%>
+			<a href="/blog/<%=thisTag%>/page=<%=prevPage%>"><i class="fas fa-chevron-left"></i></a>
+             <a href="/blog/<%=thisTag%>/page=<%=nextPage%>"><i class="fas fa-chevron-right"></i></a>
+			   <%}%>
+			   
+           </div>
+       </div>
+    
+       <aside class="sidebar">
+            <div class="currently-reading">
+                        <h3>Currently Reading</h3>
+                        <div class="post-content">
+                            <div class="post-image">
+                                <div>
+                                    <img class="img" src="<%=CR.coverURL%>" alt="">
+                                </div>
+                               <div class="post-info flex-row">
+                                   <span><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;<%=CR.start%></span>
+                               </div>
+                            </div>
+                            <div class="post-title">
+                                <h3><%=CR.title%></h3>
+								<div class="center">
+									   <h5>By <%=CR.author%></h5>
+                               <a href="<%=CR.goodreadsURL%>"> <button class=" cool-btn">More details about it &nbsp;<i class="fas fa-arrow-right"></i></button></a>
+								</div>
+                             
+                            </div>
+                            
+                        </div>
+                    </div>
+           <div class="search-box">
+               <h3 style="text-align: center;">Search</h3>
+               <div class="center">
+                   <form class="flex-row" action="/blog/page=1" method="GET">
+                   <input type="text" name="searchBox" class="input-elemenr">
+                   <button class="form-btn ">Go</button>
+               </form>
+           </div>
+           </div>
+           <div id="my-pinter" >
+                    <h3 style="text-align: center;">Find me on Pinterest</h3>
+			   <div class="center">
+				       <a data-pin-do="embedUser" data-pin-board-width="350" data-pin-scale-height="240" data-pin-scale-width="90" href="https://www.pinterest.com/iam_dreamy/"></a>
+			   </div>
+         
+                   </div>
+       </aside>
+    </div>
+ 
+
+</section>
+<!--==x=====Journal Content=====x=====-->
+</main>
+<!----------------------------------------------------- Footer Section------------------------------------------------>
+<footer class="footer" id="contact">
+    <div class="container">
+        <div class="about-me">
+            <h4>About me</h4>
+            <p>My name is Ikram M. a Passionate writer and an enthusiastic Computer Science Student. Althea Blog is created and owned by me which is my first step into sharing my voice with the world through the power of words and digital communication ...<a href="/about">(more about me)</a> </p>
+        </div>
+        <div class="follow-me">
+            <h4>Find me on</h4>
+            <p>My social Accounts</p>
+            <div class="">
+               <a href="https://www.facebook.com/Sombre.huh/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/dream_.y/" target="_blank"> <i class="fab fa-instagram"></i></a>
+                 <a href="#pinterest-board"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="rights flex-row">
+        <h4>| Copyrights @2020 All rights reserved | Created by <cite>Dreamy Altheda</cite></h4>
+    </div>
+    <div class="move-up">
+        <span><i class="fas fa-arrow-alt-circle-up"></i></span>
+    </div>
+</footer>
+
+<!--------------x-------------------x-------------------- Footer Section-----------x-------------------x------------------>
+
+
+
+
+    
+
+
+
+
+  
+    <!--Pinterest Javascript-->
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<!--Jquery library -->
+<script src="/js/jquery3.5.1.min.js"></script>
+<!--Costume javascript-->
+<script src="/js/main.js"></script>
+<!--Owl Carousel library-->
+<script src="/js/owl.carousel.js"></script>
+
+</body>
+</html>
