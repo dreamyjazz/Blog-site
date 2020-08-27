@@ -39,9 +39,10 @@ mongoose.connect(`mongodb+srv://dreamycodes:${process.env.ATLASPASSWORD}@cluster
         console.log("connected to the database");
     })
     .catch(function(err){
+
         console.log("Failed to connect due to : ", err);
-    });
-*/
+    });*/
+
 //PASSPORT CONFIGURATION 
 app.use(require("express-session")({
 	secret : "a secret",

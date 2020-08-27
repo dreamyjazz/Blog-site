@@ -38,18 +38,25 @@ cloudinary.config({
 				var pages = Math.ceil(querySet / rows)
 				return trimData;
 			}
+
 //THE TAGS ROUTE REDIRECT
 router.get("/blog/:theTag/page=:num", function(req,res){
 	console.log(req.params.num)
 	var thisTag = req.params.theTag.toLowerCase();
 	blogPost.find({tags :{$regex : thisTag}}, function(err,docs){
 		if(err){console.log(`There is an error while finding posts with the tag ${thisTag}`)}else{
-			res.render("journal2", {
+			currentRead.find({}, function(err, book){
+				if(err){console.log("THIS IS THE ERROR : ", err)}else{
+					res.render("journal2", {
 				thisTag : thisTag,
 				tags : true,
 				results : pagination(docs, Number(req.params.num), 3), 
 				nextPage : Number(req.params.num) +1, 
-				prevPage : Number(req.params.num) - 1})
+				prevPage : Number(req.params.num) - 1, 
+					CR : book[book.length - 1]})
+				}
+			})
+			
 		}
 	})
 	
