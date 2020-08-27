@@ -22,7 +22,8 @@ var allTags = ["Art", "Writing", "Tech", "Cinema & shows", "Other"];
 			
 				Count = blogPosts.length
 		console.log("Total number of posts is ",Count)
-	res.render("index2", {blogPosts : blogPosts, Count : Count, CR : docs[docs.length - 1],
+	res.render("index2", {blogPosts : blogPosts, Count : Count,
+						 CR : docs[docs.length - 1],
 						 works : docs2, allTags : allTags})
 			})
 		
