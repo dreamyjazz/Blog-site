@@ -64,5 +64,5 @@ app.use(otherRoute);
 
 
 //listening on the localhost port
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log("THE BLOG SERVER HAS STARTED ON PORT 3000!! ");})
