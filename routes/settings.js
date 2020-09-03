@@ -55,6 +55,8 @@ router.post("/admin/update-current-read", function(req,res){
 	
 })
 
+//Creating the comments and appending them into the comment section 
+
 
 
 
