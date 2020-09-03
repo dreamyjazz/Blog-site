@@ -66,5 +66,5 @@ app.use(otherRoute);
 
 //listening on the localhost port
 //Before pushing to heroku make sure you use this --> process.env.PORT
-app.listen(process.env.PORT, function(){
+app.listen(3000, function(){
     console.log("THE BLOG SERVER HAS STARTED ON PORT 3000!! ");})
