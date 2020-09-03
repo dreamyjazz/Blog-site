@@ -73,16 +73,22 @@ router.get("/blog/page=:num", function(req,res){
 			 }, function(err, blogPosts){
 		if(err){console.log("ERROR WHILE LOADING BLOG POSTS");}
 		else{
-			
-			console.log(pagination(blogPosts, req.params.num, 4))
-			res.render("journal2", {
-					thisTag : undefined,
+			currentRead.find({}, function(err, CR){
+				if(err){console.log("There's an error while fetching the current read", err)}else{
+					var Current = CR[CR.length -1 ]
+					res.render("journal2", {
+				CR : Current,
+				tags : null,
+				thisTag : undefined,
 				results : pagination(blogPosts, req.params.num, 4), 
 				nextPage : Number(req.params.num) +1, 
-				prevPage : Number(req.params.num) - 1})}
-		})
+				prevPage : Number(req.params.num) - 1})
+			}}) } })}
+		
 	
-}else{
+else{
+	//testing the async function
+	
 			 blogPost.find({}, function(err, blogPosts){
 				 currentRead.find({}, function(err,docs2){
 					 if(err){console.log("ERROR IN CURRENT Read --> Journal page ", err)}else{

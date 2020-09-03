@@ -74,9 +74,20 @@
 		   		<%}else{%>
 			   
 			   	     <p class="simple">Posts under the tag : <%=thisTag%></p>
-			   <%}%>
+			   		  <%if(!results){%>
+		   <div class="center">
+			   <h1>
+				   Sorry no posts under : <%=thisTag%>
+			   </h1>
 			   
 		   </div>
+			   <%}}%>
+			   
+		   </div>
+	
+		   
+		  
+
      <%for(var i =0; i< results.length; i++){%>
            <div class="post-content">
                <div class="post-image">
@@ -89,6 +100,7 @@
                   </div>
                </div>
                <div class="post-title">
+				  
                    <a href="#"><%=results[i].title%></a>
                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab saepe optio molestiae accusantium libero soluta quos reiciendis possimus velit inventore eum, qui
                    </p>
@@ -96,8 +108,8 @@
 					  <button class=" cool-btn">Read More &nbsp;
 						  <i class="fas fa-arrow-right"></i></button>
 				   </a>
+
                </div>
-               
            </div>
 		   <br>
 		   <%}%>
