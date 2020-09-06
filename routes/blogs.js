@@ -63,6 +63,7 @@ router.get("/blog/:theTag/page=:num", function(req,res){
 })
 router.get("/blog/page=:num", function(req,res){
 	if(Number(req.params.num) === 0){res.send("Unavailable Page! ")}
+	
 	//GET ONLY THE BLOGPOSTS CORRESPONDING TO THE SEARCHING TERM
 	if(req.query.searchBox){
 		console.log(req.query.searchBox);
@@ -108,9 +109,8 @@ else{
 	 
 		})
 	
-}
-	
-})
+} })
+
 //Show route
 router.get("/blog/:id", function(req,res){
 	blogPost.findById(req.params.id, function(err, foundBlog){
@@ -136,6 +136,7 @@ router.get("/blog/:id", function(req,res){
 		 }
 	})
 })
+
 //Route ==> All posts on editing page
 router.get("/admin/edit/page=:num", IsAdminLoggedIn, function(req,res){
 	blogPost.find({}, function(err, docs){
