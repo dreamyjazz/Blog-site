@@ -1,250 +1,94 @@
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edgy">
-    <title>Althea's</title>
-    <!--Costume style-->
-    <link rel="stylesheet" href="/css/style.css">
-    <!--Font awesome icons-->
-    <link rel="stylesheet" href="/css/all.css">
-    <!--Owl carousel Library-->
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+<style>
+html,body { 
+	height: 100%; 
+}
+
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f5f5f5;
+}
+
+form{
+	padding-top: 10px;
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.card-title{ font-weight:300; }
+
+.btn{
+	font-size: 14px;
+	margin-top:20px;
+}
 
 
+.login-form{ 
+	width:330px;
+	margin:20px;
+}
 
-    
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
 
-</head>
+.alert{
+	margin-bottom:-30px;
+	font-size: 13px;
+	margin-top:20px;
+}</style>
+	</head>
 <body>
-    <!--=============The loading section===========-->
-    <div class="loader_bg">
-        <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loading...!</h2>
-        <div class="loader">
-         
-        </div>
-    </div>
-    <!--====x=========The loading section=====x======-->
-    <!------------------------------------------------------- Navigation------------------------------------------------>
-<nav class="nav">
-    <div class="nav-menu flex-row">
-        <div class="nav-brand">
-            <a href="#" class="text-gray">
-                <img id="logo1" src="assets/logo.png">
-                <img id="logo2" src="assets/logo2.png" >
-            </a>
-        </div>
-        <div class="toggle-collapse">
-            <div class="toggle-icon">
-                <i class="fas fa-hamburger"></i>
-            </div>
-        </div>
-        <div>
-            <ul class="nav-items">
-                <li class="nav-link"><a href="/" class="current"><i class="fas fa-home"></i> &nbsp;Home</a></li>
-                <li class="nav-link"><a href="/blog/page=1"><i class="fas fa-feather-alt"></i> &nbsp;Blog</a></li>
-                <li class="nav-link"><a href="/about"><i class="far fa-smile-beam"></i> &nbsp;About</a></li>
-                <li class="nav-link"><a href="#contact" id="contact-link"><i class="fas fa-mobile-alt"></i> &nbsp;Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <div class="social text-gray">
-                     <a href="https://www.facebook.com/Sombre.huh/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/dream_.y/" target="_blank"> <i class="fab fa-instagram"></i></a>
-                 <a href="#my-pinter"><i class="fab fa-pinterest"></i></a>
-            </div>
-        </div>
-    </div>
-</nav>
-<!-------------x-------------x----------------------------- Navigation----------x-----------------------x--------------->
-<!------------------------------------------- Main Page-------------------------------------------------->
-
-  <!--=====================xPage title section=========-->
-<main>
-    <!--Site title section-->
-    <section id="first-section" class="site-title">
-        <div class="site-background">
-            <h3>Welcome to Althea's</h3>
-            <h1 class="bold-headings">My personal Blog</h1>
-            <button class="btn"><a href="#more">Explore More</a></button>
-        </div>
-    </section>
-    <!--=================x====xPage title section=======x======-->
-
-    <!--=======Owl Blog Carousel ==========-->
-    <section id="more" class="blog" >
-        
-        <div class="container">
-                <div class="flex-row" style="justify-content: center;">
-                <h3 style="font-size: 2rem;">Some of my works in writing</h3></div>
-            <div class="owl-carousel owl-theme blog-post" >
-               <%for(var i=0; i<works.length; i++){%>
-                <div class="blog-card">
-                    <img src="<%=works[i].coverImage%>" alt="A picture of the work"> 
-                <div class="blog-card-title">
-                    <h3><%=works[i].title%></h3>
-                    <p class="post-tease"><%=works[i].details%></p>
-                 <a href="<%=works[i].link%>">  <button class="cool-btn">View Work <span><i class="fas fa-chevron-circle-right"></i></span></button></a> 
-                    <h5> <i class="fas fa-pen"></i><span> <%=works[i].createdOn%></span></h5>
-
-                </div>
-                </div>
-				<%}%>
-            </div>
-            <div class="owl-navigation" >
-                <span class="owl-nav-prev"><i class="fas fa-arrow-left"></i></span>
-                <span class="owl-nav-next"><i class="fas fa-arrow-right"></i></span>
-
-            </div>
-        </div>
-    </section>
-    <!--===x====Owl Blog Carousel =====x=====-->
-<br>
-     <!--=======Journal Content==========-->
-     <section id="blog" class="container">
-             <div class="site-content">
+	
+	<div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<h3 class="card-title text-center">Sign Up to Codepen</h3>
+		<div class="card-text">
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			<form action="/logIn" method="POST">
+				<!-- to error: add class "has-danger" -->
+			<div class="form-group">
+					<label for="exampleInputUsername">Username</label>
+					<input type="text" class="form-control form-control-sm" id="exampleInputUsername" name="username">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<a href="#" style="float:right;font-size:12px;">Forgot password?</a>
+					<input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="password">
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">Log In</button>
 				
-                <div class="posts">
-				<div class="center">
-			     <h1>From the Journal</h1> 
-		   </div>
-					<div class="center">
-						<p>
-						See my latest Blog Posts
-						</p>
-					</div>
-					<%for(var i =1 ; i<=3; i++){%>
-                    <div class="post-content">
-                        <div class="post-image">
-                            <div>
-                                <img class="img" src="<%=blogPosts[Count - i].blogPhoto%>" alt="">
-                            </div>
-                           <div class="post-info flex-row">
-                               <span><i class="fas fa-user"></i>&nbsp;&nbsp;Admin</span>
-                               <span><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;<%=blogPosts[Count - i].createdAt%></span>
-                           </div>
-                        </div>
-                        <div class="post-title">
-                            <a  href="/blog/<%=blogPosts[Count - i]._id%>"><h3 style="color:black;">
-								<%=blogPosts[Count - i].title%>
-								</h3></a>
-                            <p><%=blogPosts[Count - i].postSummary%>
-                            </p>
-                        <a href="/blog/<%=blogPosts[Count - i]._id%>"><button class=" cool-btn">Read More &nbsp;<i class="fas fa-arrow-right"></i></button></a>
-                        </div>
-                        
-                    </div>
-					<br>
-					<%}%>
-                   
-                   
-                </div>
-             
-                <aside class="sidebar">
-                    <div class="categories">
-                        <h3>By tags</h3>
-						
-							  <ul class="category-list">
-							<%for(var i=0; i< allTags.length; i++){%>
-							<a href="/blog/<%=allTags[i]%>/page=1">
-								<li class="list-item">
-								<%=allTags[i]%>
-                           </li>
-							</a>
-							<%}%>
-                        </ul>
-						
-                     
-                    </div>
-                    <div class="currently-reading">
-                        <h3>Currently Reading</h3>
-                        <div class="post-content">
-                            <div class="post-image">
-                                <div>
-                                    <img class="img" src="<%=CR.coverURL%>" alt="">
-                                </div>
-                               <div class="post-info flex-row">
-                                   <span><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;<%=CR.start%></span>
-                               </div>
-                            </div>
-                            <div class="post-title">
-                                <h3><%=CR.title%></h3>
-								<div class="center">
-									   <h5>By <%=CR.author%></h5>
-                               <a href="<%=CR.goodreadsURL%>"> <button class=" cool-btn">More details about it &nbsp;<i class="fas fa-arrow-right"></i></button></a>
-								</div>
-                             
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="search-box">
-                        <h3 style="text-align: center;">Search</h3>
-                        <div class="center">
-                            <form class="flex-row"  action="/blog/page=1" method="GET">
-                            <input type="text" name="searchBox" class="input-elemenr">
-                            <button class="form-btn ">Go</button>
-                        </form>
-                    </div>
-                    </div>
-                   <div id="my-pinter">
-					 
-						      <h3 style="text-align: center;">Find me on Pinterest</h3>
-					     <div class="center">
-                  <a data-pin-do="embedUser" data-pin-board-width="350" data-pin-scale-height="240" data-pin-scale-width="90" href="https://www.pinterest.com/iam_dreamy/"></a>
-					   </div>
-                 
-                   </div>
-                </aside>
-             </div>
-          
+				<div class="sign-up">
+					Not a member?<a href="/register"> Sign Up!</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
 
-     </section>
-     <!--==x=====Journal Content=====x=====-->
-     
 
-</main>
-
-<!-------------x-------------x----------------------------- Main Section---------x-----------------------x--------------->
-
-<!----------------------------------------------------- Footer Section------------------------------------------------>
-<footer class="footer" id="contact">
-    <div class="container">
-        <div class="about-me">
-            <h4>About me</h4>
-            <p >My name is Ikram M. a Passionate writer and an enthusiastic Computer Science Student. Althea Blog is created and owned by me which is my first step into sharing my voice with the world through the power of words and digital communication ...<a href="/about">(more about me)</a></p>
-        </div>
-        <div class="follow-me">
-            <h4>Find me on</h4>
-            <p>My social Accounts</p>
-            <div class="">
-                <a href="https://www.facebook.com/Sombre.huh/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/dream_.y/" target="_blank"> <i class="fab fa-instagram"></i></a>
-                 <a href="#my-pinter"><i class="fab fa-pinterest"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="rights flex-row">
-        <h4>| Copyrights @2020 All rights reserved | made by <cite>Dreamy Altheda</cite></h4>
-    </div>
-    <div class="move-up">
-        <span><i class="fas fa-arrow-alt-circle-up"></i></span>
-    </div>
-</footer>
-
-<!--------------x-------------------x-------------------- Footer Section-----------x-------------------x------------------>
-
-<!--Pinterest Javascript-->
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-    <!--Jquery library -->
-    <script src="/js/jquery3.5.1.min.js"></script>
-    <!--Costume javascript-->
-    <script src="/js/main.js"></script>
-    <!--Owl Carousel library-->
-    <script src="/js/owl.carousel.js"></script>
-
-</body>
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
 </html>

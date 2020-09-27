@@ -101,11 +101,6 @@ background: linear-gradient(to right, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, F
         text-align: center;
         font-size: 2rem;
     }
-        .responsive1, .responsive2{
-            width: 100%;
-            transition: all .5s ease;
-  height: auto;
-}
 /*---x----------Global classes --------------x---------*/
 /*=======loader class========*/
 .loader_bg h2{
@@ -302,7 +297,7 @@ background: linear-gradient(to right, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, F
         main .site-title{
             transition: all .5s ease;
             margin: 0%;
-            background-image: url(/assets/cover2.jpg);
+            background-image: url(/assets/back2.jpg);
             background-size: cover;
             background-repeat : no-repeat;
             height: 90vh;
@@ -365,15 +360,12 @@ background: linear-gradient(to right, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, F
                     width : 100%;
                 }
                 .container .owl-nav .owl-prev .owl-nav-prev,.container .owl-nav .owl-next .owl-nav-next{
-					color :black;
-					border : none;
                     background-color: transparent;
                     font-size: 2rem;
                 }
                 .container .owl-theme .owl-nav [class*='owl-']:hover{
                     background-color: transparent;
-                    color: grey;
-					border : none;
+                    color: black;
                 }
 /*==x====x====Blog Carosel======x====x====*/
 
@@ -747,7 +739,7 @@ label #cancel {
     box-shadow: none;
     border: none;
     font-size : 18px;
-    font-family: "Bookman Old Style", cursive;
+    font-family: var(--DancingScript);
     padding : 0 10px;
     z-index : 1;
 }
@@ -901,11 +893,9 @@ label #cancel {
 }
 /*======= VIEWPORT PORT LESS THAN 520 PX ====*/
 @media only screen and (max-width : 520px){
-	h1{
-		font-size : 36px;
-	}
+
 main .blog{
-    height: auto;
+    height: 125vh;
 }
 .site-content .post-content > .post-image .post-info{
     display: none;
