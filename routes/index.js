@@ -24,7 +24,7 @@ var allTags = ["Art", "Writing", "Tech", "Cinema & shows", "Other"];
 		console.log("Total number of posts is ",Count)
 	res.render("index2", {blogPosts : blogPosts, Count : Count,
 						 CR : docs[docs.length - 1],
-						 works : docs2, allTags : allTags})
+						 works : docs2,})
 			})
 		
 		} 

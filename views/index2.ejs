@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style2.css">
     <link rel="stylesheet" href="/css/all.css">
         <!-- flickity CSS -->
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <style>
   </style>
-    <title>Document</title>
+    <title>Althea's</title>
 </head>
 <body>
 <div class="container">
@@ -111,15 +111,15 @@
                 <li>Writing</li>
                 <li>Photography</li>
               </ul>
-                <h4 class="blog-header"<%=blogPosts[Count -1].title=%></h4>
+                <h4 class="blog-header"><%=blogPosts[Count -1].title%></h4>
                 <ul class="info">
-                  <li><i class="far fa-calendar-alt"></i>&nbsp;July 22th 2020</li>
+                  <li><i class="far fa-calendar-alt"></i>&nbsp;<%=blogPosts[Count -1].createdAt%></li>
                   <li><i class="fas fa-pen-fancy"></i>&nbsp;By ikram m.</li>
                   <li><i class="far fa-clock"></i>&nbsp;read time :2 minutes </li>
                 </ul>
                
-                  <img src="https://images.unsplash.com/photo-1535008652995-e95986556e32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjIxMTIzfQ&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat fuga tenetur omnis praesentium amet molestias accusamus libero voluptate, necessitatibus culpa.</p>
+                  <img src="<%=blogPosts[Count -1].blogPhoto%>" alt="" class="img-fluid">
+                  <p><%=blogPosts[Count -1].postSummary%></p>
                   <div class="read">
                     <a href="" class="btn">Continue Reading&nbsp;<i class="fas fa-chevron-right"></i></a>
                   </div>
@@ -247,13 +247,13 @@
     <h2 class="my-4 text-center">Currently Reading ...!</h2>
     <div class="row">
       <div class=" col-sm-4 ">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81EI+ELW9EL.jpg" alt="" class="img-fluid book-cover">
+        <img src="<%=CR.coverURL%>" alt="" class="img-fluid book-cover">
       </div>
       <div class="col-sm-8 ">
          <div>
-          <h3>Book title goes in here </h3>
-          <p class="align-middle">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet perspiciatis esse voluptatum? Perferendis consequuntur modi veritatis amet voluptates earum quia. Fugit, reiciendis!</p>
-          <a href="" class="btn">More details&nbsp;<i class="fas fa-book"></i></a>
+          <h3><%=CR.title%></h3>
+          <p class="align-middle"><%=CR.author%></p>
+          <a href="<%=CR.link%>" target="_blank" class="btn">More details&nbsp;<i class="fas fa-book"></i></a>
         
         </div>
       </div>
