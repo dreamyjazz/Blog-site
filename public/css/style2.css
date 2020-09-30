@@ -8,6 +8,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@600&family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
+:root {
+    --animate-duration: 2s;
+    --animate-delay: 1.2s;
+  }
+html{
+    scroll-behavior: smooth;
+}
 body{
     font-family: 'Poppins', sans-serif;
 }
@@ -118,8 +125,18 @@ cite {
         justify-content: center;
         align-content: center;
 }
-.latest-blog-post img, .latest-blog-post .read{
+.latest-blog-post img:hover, .read-next-card img:hover{
+
+    transform: scale(1.1);
+}
+.latest-blog-post img, .read-next-card img{
+   
+    transition : .5s;
+    transition: all 1s ease;
+}
+.latest-blog-post .read{
     margin-left: 20px;
+   
 }
 .latest-blog-post p{
     line-height: 2rem;
@@ -131,6 +148,7 @@ cite {
     padding: 0px 10px;
 }
 nav ul{
+      scroll-behavior: smooth;
     margin: 0;
     width: 100%;
     display: flex;
@@ -140,7 +158,8 @@ nav ul{
 
 }
 nav ul li{
-    padding: 10px;
+    overflow: hidden;
+    padding: 5px;
     font-size: 18px;
     font-weight: bolder;
     letter-spacing: 1.5px;
@@ -148,11 +167,13 @@ nav ul li{
 nav ul li:hover{
     color: #fa8072;
     border-bottom: 1.5px solid salmon;
-    
+    overflow: hidden;
     transition: all .1s ease;
     cursor: pointer;}
+
     nav ul li a:hover{
         color: #fa8072;
+        overflow: hidden;
     }
     nav ul li.socials{
         padding: 0;
@@ -280,10 +301,119 @@ footer ul li a:hover{
    color: white;
    background-color: salmon;
 }
+/*SINGLE PAGE STYLE === >>>> */
+#blog-banner{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+  ul.info li{
+    color: grey;
+  }
+  .read-next-card{
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .waves{
+      margin-top: -25%;
+      transition: all .3s ease;
+  }
+/*SINGLE PAGE STYLE DONE =X=X=XX=X=>>>>x*/
+
+/*THE JOURNAL PAGEE ====>>> */
+.blog-card:hover{
+    box-shadow: 0 5px 20px salmon;
+    transition: all .5s ease;
+  }
+
+  .blog-card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .5);}
+.mini-cards .col-4 img{
+    transition: all .5s ease;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+  .blog-card-img img:hover,  .mini-cards .col-4 img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px #fa8072;
+  }
+  .blog-card-img, .mini-cards .col-4{
+    overflow: hidden;
+  }
+  .blog-card-img img{
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: all .6s ease;
+    
+  }
+  .blog-card .blog-card-body{
+    text-align: left;
+    padding: 10px;
+  }
+  .blog-card .blog-card-body h5{
+      font-size: 28px;
+      font-weight: bolder;
+      letter-spacing: 1.5px;
+  }
+  .blog-card-footer{
+      margin-bottom: 10px;
+  }
+  .about-me-box{
+    margin: 20px 0px;
+    padding: 30px 60px;
+    display: flex; flex-direction: row;
+    background-image: url(/assets/images/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;    }
+
+  .about-me-box h2{
+    padding: 10px;
+    font-size: 42px;
+    font-weight: bolder;
+  }
+  .about-me-box p,.blog-card .blog-card-body p{
+    font-size: 18px;
+    line-height: 2rem;
+  }
+  .next-button{
+      margin-bottom: 20px;
+     display: flex;
+     flex-direction: row-reverse;
+     padding-right: 20px;}
+     .currently-reading-box{
+         padding: 20px 10px ;
+         margin: 50px 0px;
+         background-image: url(/assets/images/wave.svg);
+         background-size: cover;
+         background-repeat:no-repeat;
+     }
+  #div1{
+  background-size:cover; 
+  background-repeat:no-repeat;
+   height:700px; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.unsplash.com/photo-1535546204504-586398ee6677?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMjF9&auto=format&fit=crop&w=1525&q=80);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  }
+/*THE JOURNAL PAGE ---X--X--X-->> */
 
 /*======= >> >>> >> >>> =====*/
 @media(max-width: 750px){
-  
+    .waves{
+        margin-top: -35%;
+     
+    }
     .enjoy{
         margin: 4rem 0px;
     }
@@ -292,6 +422,9 @@ footer ul li a:hover{
     }
 }
 @media (max-width : 950px){
+    .blog-card, .anime-right{
+        margin: 20px 0px;
+    }
     .col-sm-8 div{
         margin-top: 0%;
     }

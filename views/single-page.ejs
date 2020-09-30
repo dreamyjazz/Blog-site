@@ -3,67 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/all.css">
+   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/all.css">
         <!-- flickity CSS -->
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <style>
       #blog-banner{
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(<%=foundBlog.blogPhoto%>);
+		background-size: cover;
         height: 500px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-content: center;
       }
+      ul.info li{
+        color: antiquewhite;
+      }
+      .read-next-card{
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
+        padding: 10px;
+        border-radius: 10px;
+      }
+      
   </style>
-    <title>Document</title>
+    <title><%=title%></title>
 </head>
 <body>
 <div class="container">
-    <div class="logo-container">
-        <img src="assets/images/logo.png" alt="logo goes here" style="width: 300px;">
+  <div class="logo-container">
+  		<a href="/"><img class="img-fluid" src="/assets/icons/logo.png" alt="logo goes here" ></a>
+</div>
+<hr>
+<nav style="overflow: hidden;" class=" navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""><i class="fas fa-hamburger"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul  class=" mb-lg-0">
+          <li class="">
+            <a class=" active" aria-current="page" href="/">
+              <img src="/images/notebook.png" alt="">
+            </span>&nbsp;Home</a>
+          </li>
+          <li class="">
+            <a class="" href="/blog/page=1"> <img src="/images/poem.png" alt="">Blog</a>
+          </li>
+          <li class="">
+            <a class="" href="#"><img src="/images/user.png" alt=""> About</a>
+          </li>
+          <li class="">
+            <a class="" href="#"><img src="/images/message.png" alt=""></span>&nbsp;Contact</a>
+          </li>
+          <li class="socials">
+            <ul>
+              <li class="social-icons"><span><i class="fab fa-instagram"></i></span></li>
+              <li class="social-icons"><span><i class="fab fa-pinterest"></i></span></li>
+              <li class="social-icons"><span><i class="fab fa-facebook"></i></span></li>
+          </ul>
+          </li>
+        </ul>
+        
+      </div>
     </div>
-    <hr>
-    <nav class="sticky-top navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""><i class="fas fa-hamburger"></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul  class=" mb-lg-0">
-              <li class="">
-                <a class=" active" aria-current="page" href="#"><i class="fas fa-home"></i></span>&nbsp;Home</a>
-              </li>
-              <li class="">
-                <a class="" href="#"><i class="fas fa-book"></i>&nbsp;Blog</a>
-              </li>
-              <li class="">
-                <a class="" href="#">About</a>
-              </li>
-              <li class="">
-                <a class="" href="#"><i class="fas fa-pen"></i></span>&nbsp;Contact</a>
-              </li>
-              <li class="socials">
-                <ul>
-                  <li class="social-icons"><span><i class="fab fa-instagram"></i></span></li>
-                  <li class="social-icons"><span><i class="fab fa-pinterest"></i></span></li>
-                  <li class="social-icons"><span><i class="fab fa-facebook"></i></span></li>
-              </ul>
-              </li>
-            </ul>
-            
-          </div>
-        </div>
-      </nav>
+  </nav>
   
-<div id="blog-banner" class=" container-fluid" style="height: 500px; ">
+<div id="blog-banner" class=" container-fluid" style="height: 500px; margin-bottom: 4rem;">
     <div style="align-self: center; color: whitesmoke;">
-    <h1 class="text-center">Blog title goes here</h1>
+    <h1 class="text-center display-3 pb-3"><%=foundBlog.title%></h1>
     <ul class="info">
-        <li><i class="far fa-calendar-alt"></i>&nbsp;July 22th 2020</li>
+        <li style="color: antiquewhite;"><i class="far fa-calendar-alt"></i>&nbsp;<%=foundBlog.createdAt%></li>
         <li><i class="fas fa-pen-fancy"></i>&nbsp;By ikram m.</li>
         <li><i class="far fa-clock"></i>&nbsp;read time :2 minutes </li>
       </ul>
@@ -73,38 +88,26 @@
 <div class="row">
     <!--content-->
     <div class="col-md-9">
-        <h4>We are doing something </h4>
-        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quia earum animi suscipit! Ullam, deleniti!</p>
-        <br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quibusdam corporis dolorem aperiam cupiditate corrupti provident obcaecati at sint assumenda odit ab natus, consectetur quaerat sed dolor amet tempora rerum placeat similique omnis dignissimos quos itaque nemo. Dolorum, nobis aliquam natus illum, illo id tempore ipsam vel repellendus sint, quasi vero ullam eius hic autem?</p>
-        <img src="https://images.unsplash.com/photo-1597441205491-f5c9bc18be6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=937&q=80" alt="" class="img-fluid">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus non explicabo omnis accusamus quas consequatur distinctio modi velit pariatur recusandae impedit dolorum, magni dignissimos repellendus nam aliquam itaque sequi reprehenderit alias illum eos, illo obcaecati sit ipsa. Ut quibusdam, voluptatem doloribus, expedita et tenetur qui maiores debitis, eos doloremque mollitia suscipit excepturi? Accusamus reiciendis, earum cupiditate eaque dicta autem quos blanditiis nemo natus esse error ipsa ut, omnis quasi ipsum iste doloribus at quod doloremque sunt ab officiis, voluptas ex. Atque, ut. Est corrupti recusandae distinctio fuga tempore aliquam, qui expedita deserunt obcaecati consequuntur minus minima nobis. Error dicta eos animi, ad nisi non quos.</p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates odio, aperiam, mollitia libero reprehenderit iste earum minima eum ad voluptatum quia fuga ullam quis, tenetur nihil ut perspiciatis consectetur facere. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, officiis vitae harum quo qui ratione tenetur iste delectus quae facere eum! Praesentium accusamus consequatur quis atque laudantium facere accusantium qui molestiae similique excepturi saepe, corporis voluptatum fuga sunt voluptatem illo fugit. Officiis hic accusantium velit aliquid. Minima molestias, nostrum est dolores dolorum quam deserunt necessitatibus temporibus accusantium similique quas eveniet unde dolor magni soluta corporis voluptatibus dicta. Iste et soluta excepturi autem quaerat dicta repellendus? Beatae aliquam, ab sit incidunt cum minus facilis nesciunt possimus excepturi molestias, explicabo reiciendis, enim nihil quia sequi. Ab perspiciatis odio expedita officia. Ab rem obcaecati totam tenetur id laudantium ad dolores officia alias, ullam, hic consectetur quasi libero dignissimos sequi accusamus nobis. Nostrum id repellendus, non ad alias a voluptate. Sunt, ratione sapiente quisquam similique autem consequuntur eius libero molestiae veniam iste assumenda porro obcaecati mollitia. Repellat sapiente fugit adipisci eligendi molestiae iure sit eius dolor dolores temporibus beatae maxime tempore asperiores laboriosam eos porro veniam, perferendis accusantium dicta labore, voluptatibus minus? Itaque amet delectus architecto vero velit vitae nihil ducimus, obcaecati in qui nulla voluptatem numquam fugit veniam et minus non est, voluptatum repudiandae alias corrupti aliquid. Assumenda dolores eligendi eos voluptas possimus. Quod quis optio ratione atque, provident sint id architecto temporibus culpa rerum animi totam distinctio ea voluptas velit voluptatibus numquam similique odio necessitatibus quos exercitationem? Quidem repellat assumenda porro esse corporis tenetur impedit minima laudantium. Ipsam, facilis nulla enim praesentium atque, molestias aliquam nam inventore suscipit fugit obcaecati nostrum. Placeat minima eum, mollitia dignissimos maiores voluptatibus ex voluptate, delectus expedita sint vel! Possimus tenetur ut provident, consequatur nam iste quasi dolorum aliquam iure, qui ipsam quos architecto iusto molestiae praesentium obcaecati perferendis deserunt voluptas reprehenderit magni dolorem blanditiis quas? Inventore, distinctio numquam in molestias, ipsa culpa quos, voluptatibus nisi amet rerum ratione placeat itaque eveniet laborum repellendus illum! Quas quae necessitatibus blanditiis ex vitae. Eos nam commodi ipsam totam assumenda sit itaque. Tempore minus, quibusdam sapiente repudiandae dolores amet explicabo corporis nulla omnis a non. Vero voluptates natus ullam, soluta doloribus reiciendis iure voluptatibus nesciunt molestiae, excepturi autem quod, delectus quaerat consequatur amet minus veritatis quidem exercitationem explicabo aliquid rem beatae qui accusantium. Repudiandae itaque eaque aliquam iure sunt consectetur quis possimus tempore, nisi, quod animi ut fuga! Fuga amet quisquam reprehenderit fugiat unde illo praesentium placeat! Inventore tenetur aliquid qui ab id facere unde aut impedit quod, reiciendis recusandae neque temporibus necessitatibus ex quas delectus soluta omnis, nisi ipsum atque laborum! Quibusdam molestias, mollitia vel dignissimos rerum beatae obcaecati labore consequuntur iste sunt quas. Voluptatem alias earum fuga, explicabo accusamus ullam eum non quaerat, temporibus quisquam velit vel aliquid odit magnam tempora. Maiores nulla eveniet reiciendis sequi culpa omnis cupiditate quos libero qui corrupti quod illo mollitia quis repellendus numquam necessitatibus adipisci sunt aliquam porro aut, non, officiis et voluptate maxime. Laborum error doloribus id sint ad. Magni, aspernatur earum vel aperiam quisquam, nisi ut omnis consequatur minima ea id ipsam? Quam inventore nesciunt ea nisi asperiores reiciendis architecto.
-    </div>
+        <p><%-foundBlog.blogBody%></p>
+      </div>
+    
     <div class="col-md-3">
         <h3 class="headers">About me</h3>
         <div class="my-profile">
-            <img class="img-fluid" src="https://images.unsplash.com/photo-1535982606227-475c9bf94018?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
-            <div class="my-profile-body text-center">
-                <h5>Hey there!</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, ipsum?</p>
-            <a href="#" class="btn">See More </a>
+          <img class="img-fluid" src="/assets/images/mw.jpg" alt="">
+                <div class="my-profile-body text-center">
+                    <h5 >Hey there!</h5>
+                    <p>a Passionate writer and an enthusiastic Computer Science Student. Althea Blog is created and owned by ... </p>
+                <a href="#about-me" class="btn">More &nbsp;&nbsp;<i class="fas fa-chevron-down"></i></a>
             </div>
-            <br><br>
-            <h3 class="text-center">contact</h3>
-            <div class="my-profile-socials">
-                <ul>
-                    <li class="social-icons"><span><i class="fab fa-instagram"></i></span></li>
-                    <li class="social-icons"><span><i class="fab fa-pinterest"></i></span></li>
-                    <li class="social-icons"><span><i class="fab fa-facebook"></i></span></li>
-                </ul>
-            </div>
+          
         </div>
-        <div class="justify-content-center">
+        <div class="" style="padding:20px; display: flex; flex-direction: column; align-content: center;">
             <h5 class="headers">Enjoy My writings? </h5>
-            <img src="assets/images/typewriter.png" alt="" class="img-fluid">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, tempora.</p>
-            <a href="" class="btn">Find me </a>
+            <div style="align-self: center; padding: 10px;"><img src="/assets/icons/quill.png" alt="" class="img-fluid"></div>
+            
+            <p style="text-align: center;">interested in discovering all my newest and recent short stories? Then here's my wattpad profile!</p>
+           <a href="https://www.wattpad.com/user/dreamyaltheda" target="_blank" class="btn">Follow me <img src="/assets/icons/wattpad.png"></a>
         </div>
     </div>
 </div>
@@ -113,7 +116,45 @@
 <!--xxxLeave a commment ====>> -->
 
 <!--Read next ==== >> -->
-
+<div style="margin: 4rem 0rem;" class="row">
+  <h2 class="my-4 text-center">Read Next ...</h2>
+  <div class="col-sm-6">
+    <div class="read-next-card  ">
+      <div style="display: flex; padding: .2rem;" 
+      class="read-next-card-upper">
+        <div class="read-next-image" style="overflow: hidden;">
+          <img class="img-fluid" src="<%=related2.blogPhoto%>" alt="">
+        </div>
+        <div class="read-next-body" style="font-size: 15px; padding: .5rem;">
+          <h3 class="text-center"><%=related2.title%></h3>
+          <p><%=related2.postSummary%></p>
+        </div>
+      </div>
+    
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+      <a href="/blog/<%=related2.id%>" class=" btn btn-lg btn-block">Read ...</a>
+    </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="read-next-card  ">
+      <div style="display: flex; padding: .2rem;" 
+      class="read-next-card-upper">
+        <div class="read-next-image" style="overflow: hidden;">
+          <img class="img-fluid" src="<%=related1.blogPhoto%>" alt="">
+        </div>
+        <div class="read-next-body" style="font-size: 15px; padding: .5rem;">
+          <h3 class="text-center"><%=related1.title%></h3>
+          <p><%=related1.postSummary%></p>
+        </div>
+      </div>
+    
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+      <a href="/blog/<%=related1.id%>" class="btn btn-lg btn-block">Read ...</a>
+    </div>
+    </div>
+  </div>
+</div>
 <!--Read next ==== >> -->
 
 
@@ -128,34 +169,52 @@
 
 
       <!--THE FOOTER SECTRION ============>>>>> -->
+<!--THE FOOTER SECTRION ============>>>>> -->
 <footer>
-    <div class="container">
-      <div class="logo-container">
-        <img src="/assets/images/logo-night.png" alt="">
-      </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <h5>About Me</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque voluptatum aliquid nam molestiae ab, odio placeat. Molestias nostrum quibusdam nisi.</p>
-            </div>
-            <div class="col-sm-4 p-4">
-                <h4>find Me on on <i style="font-size: 32px;" class="fab fa-pinterest"></i></span></h4>
-                <a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/iam_dreamy/boards/"></a>
-            </div>
-            <div class="col-sm-4"></div>
+  <div class="container">
+    <div class="logo-container">
+      <img src="/images/logo-night.png" class="img-fluid" alt="">
+    </div>
+      <div class="row">
+          <div id="about-me" class="col-md-4 mb-4">
+              <h5 class="footer-header">About Me</h5>
+              p>My name is Ikram M. a Passionate writer and an enthusiastic Computer Science Student. Althea Blog is created and owned by me which is my first step into sharing my voice with the world through the power of words and digital communication ...</p>
+				<img class="img-fluid" src="/assets/images/mw.jpg">
+          </div>
+          <div class="col-md-4 mb-4">
+              <h4 class="footer-header">find Me on on <i style="font-size: 32px;" class="fab fa-pinterest"></i></span></h4>
+              <a class="px-3" data-pin-do="embedUser" data-pin-board-width="350" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/iam_dreamy/boards/"></a>
+          </div>
+          <div class="col-md-4 mt-sm">
+            <h5 class="footer-header">Contact me</h5>
+            <ul style="display: flex; flex-direction: column; align-items: center;">
+            
+              <li><a href="https://www.facebook.com/Sombre.huh" target="_blank"><img src="/images/facebook.png" alt="">&nbsp;Facebook</a></li>
+              <li><a href="https://open.spotify.com/user/7x7n2654gf9ftowgt4lc22adk?si=QO3Q7lXhSYe0Eum24-IsJg" target="_blank"><img src="/images/spotify.png" alt="">&nbsp;Spotify</a></li>
+              <li><a href="https://www.instagram.com/dream_.y/" target="_blank"><img src="/images/instagram.png" alt="">&nbsp;instagram</a></li>
 
-        </div>
-    </div>
-    <div class="rights container-fluid">
-        <h5>Copyrights |2020 | </h5>
-    </div>
+            </ul>
+          </div>
+      </div>
+      <div class="up-icon ">
+        <a href="#blog-banner"><i class="fas fa-arrow-up"></i></a>
+      </div>
+  </div>
+  <div class="rights container-fluid">
+    <h6>| Copyrights @2020 All rights reserved | made by <cite>Dreamy Altheda</cite></h6>
+  </div>
 </footer>
 
+<script src="/js/jquery3.5.1.min.js"></script>
+<script>
+	
+	$("img").addClass("img-fluid")
+</script>
 <!--Pinterest Javascript-->
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <!-- flickity JavaScript -->
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -64,7 +64,7 @@ router.get("/blog/:theTag/page=:num", function(req,res){
 router.get("/blog/page=:num", function(req,res){
 	if(Number(req.params.num) === 0){res.send("Unavailable Page! ")}
 	
-	//GET ONLY THE BLOGPOSTS CORRESPONDING TO THE SEARCHING TERM
+//GET ONLY THE BLOGPOSTS CORRESPONDING TO THE SEARCHING TERM
 	if(req.query.searchBox){
 		console.log(req.query.searchBox);
 		 const regex = new RegExp(escapeRegex(req.query.searchBox), 'gi');
@@ -77,18 +77,19 @@ router.get("/blog/page=:num", function(req,res){
 			currentRead.find({}, function(err, CR){
 				if(err){console.log("There's an error while fetching the current read", err)}else{
 					var Current = CR[CR.length -1 ]
-					res.render("journal2", {
+				res.render("journal2", {
 				CR : Current,
 				tags : null,
 				thisTag : undefined,
 				results : pagination(blogPosts, req.params.num, 4), 
 				nextPage : Number(req.params.num) +1, 
 				prevPage : Number(req.params.num) - 1})
-			}}) } })}
+			}}) } 
+			 })}
 		
 	
 else{
-	//testing the async function
+	//bringing all the posts
 	
 			 blogPost.find({}, function(err, blogPosts){
 				 currentRead.find({}, function(err,docs2){
@@ -96,7 +97,7 @@ else{
 						 			 var count = blogPosts.length -1;
 		if(err){console.log("ERROR WHILE LOADING BLOG POSTS");}
 		else{
-			res.render("journal2", {
+			res.render("journal", {
 				CR : docs2[docs2.length -1],
 				thisTag : undefined,
 				tags : false,
@@ -125,9 +126,13 @@ router.get("/blog/:id", function(req,res){
 			currentRead.find({}, function(err,docs2){
 			if(err){console.log("ERROR!!!! : ", err)}else{
 				
-		var related = Math.floor(Math.random() * docs.length);		
-		console.log(related)
-		res.render("blog-single", { CR : docs2[docs2.length -1],foundBlog: foundBlog, title : foundBlog.title, related : docs[related]})
+		var related1 = Math.floor(Math.random() * docs.length);
+		var related2 = Math.floor(Math.random() * docs.length);	
+		res.render("single-page", {foundBlog: foundBlog, 
+								   title : foundBlog.title, 
+								   related1 : docs[related1],
+								   related2 : docs[related2]
+								  })
 			} })
 			}		
 		})

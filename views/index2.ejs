@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style2.css">
     <link rel="stylesheet" href="/css/all.css">
@@ -15,7 +18,7 @@
 <body>
 <div class="container">
     <div class="logo-container">
-        <img src="/images/logo.png" alt="logo goes here" style="width: 300px;">
+        		<a href="/"><img class="img-fluid" src="/assets/icons/logo.png" alt="logo goes here" ></a>
     </div>
     <hr>
     <nav class=" navbar navbar-expand-lg navbar-light">
@@ -27,18 +30,18 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul  class=" mb-lg-0">
               <li class="">
-                <a class=" active" aria-current="page" href="#">
-                  <img src="assets/images/notebook.png" alt="">
+                <a class="" aria-current="page" href="/">
+                  <img src="/images/notebook.png" alt="">
                 </span>&nbsp;Home</a>
               </li>
               <li class="">
-                <a class="" href="#"> <img src="/images/poem.png" alt=""> Blog</a>
+                <a class="" href="/blog/page=1"> <img src="/images/poem.png" alt=""> Blog</a>
               </li>
               <li class="">
-                <a class="" href="#"><img src="/images/user.png" alt=""> About</a>
+                <a class="" href="#about-me"><img src="/images/user.png" alt=""> About</a>
               </li>
               <li class="">
-                <a class="" href="#"><img src="/images/message.png" alt=""></span>&nbsp;Contact</a>
+                <a class="" href="#find-me"><img src="/images/message.png" alt=""></span>&nbsp;Contact</a>
               </li>
               <li class="socials">
                 <ul>
@@ -112,16 +115,18 @@
                 <li>Photography</li>
               </ul>
                 <h4 class="blog-header"><%=blogPosts[Count -1].title%></h4>
-                <ul class="info">
+                <ul  class="info">
                   <li><i class="far fa-calendar-alt"></i>&nbsp;<%=blogPosts[Count -1].createdAt%></li>
                   <li><i class="fas fa-pen-fancy"></i>&nbsp;By ikram m.</li>
                   <li><i class="far fa-clock"></i>&nbsp;read time :2 minutes </li>
                 </ul>
-               
-                  <img src="<%=blogPosts[Count -1].blogPhoto%>" alt="" class="img-fluid">
+               <div style="overflow : hidden;">
+				   <img src="<%=blogPosts[Count -1].blogPhoto%>" alt="" class="img-fluid">
+				</div>
+                  
                   <p><%=blogPosts[Count -1].postSummary%></p>
                   <div class="read">
-                    <a href="" class="btn">Continue Reading&nbsp;<i class="fas fa-chevron-right"></i></a>
+                    <a href="/blog/<%=blogPosts[Count -1].id%>" class="btn">Continue Reading&nbsp;<i class="fas fa-chevron-right"></i></a>
                   </div>
                  
             </div>
@@ -129,21 +134,14 @@
         <div class="col-md-3 about-me ">
             <h3 class="headers">About me</h3>
             <div class="my-profile">
-                <img class="img-fluid" src="https://images.unsplash.com/photo-1535982606227-475c9bf94018?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
+                <img class="img-fluid" src="/assets/images/mw.jpg" alt="">
                 <div class="my-profile-body text-center">
                     <h5>Hey there!</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, ipsum?</p>
-                <a href="#" class="btn">See More </a>
+                    <p>a Passionate writer and an enthusiastic Computer Science Student. Althea Blog is created and owned by ... </p>
+                <a href="#about-me" class="btn">More &nbsp;&nbsp;<i class="fas fa-chevron-down"></i></a>
                 </div>
                 <br><br>
-                <h3 class="text-center">contact</h3>
-                <div class="my-profile-socials">
-                    <ul>
-                        <li class="social-icons"><span><i class="fab fa-instagram"></i></span></li>
-                        <li class="social-icons"><span><i class="fab fa-pinterest"></i></span></li>
-                        <li class="social-icons"><span><i class="fab fa-facebook"></i></span></li>
-                    </ul>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -151,43 +149,22 @@
 <!--xxxxxxx=========END OF THIS====== -->
 <!--============from the Journal=========================-->
 <section style="margin: 5rem 0rem;">
-  <h5 class="text-center mb-4">More from the Journal</h5>
+  <h5 class="text-center mb-4 mt-sm-3">More from the Journal</h5>
 <div class="row">
+	<%for(var i=2; i<4 ; i++){%>
     <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img class="img-fluid" src=""  alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted"><i class="far fa-calendar-alt"></i>&nbsp; september 11th 2020</small></p>
-                  <a href="" class="btn">Continue Reading&nbsp;<i class="fas fa-chevron-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="card mb-3">
+			<div style="overflow:hidden;">
+				<img src="<%=blogPosts[Count -i].blogPhoto%>" class="card-img card-img-top" alt="..."></div>
+		  <div class="card-body">
+			<h4 style="font-weight : bolder;" class="card-title"><%=blogPosts[Count -i].title%></h4>
+			<p class="card-text"><%=blogPosts[Count -i].postSummary%></p>
+		  <p class="card-text"><small class="text-muted"><i class="far fa-calendar-alt"></i>&nbsp;<%=blogPosts[Count-i].createdAt%></small></p>
+        <a href="blog/<%=blogPosts[Count-i].id%>" class="btn">Continue Reading&nbsp;<i class="fas fa-chevron-right"></i></a>
+  			</div>
+		</div>
     </div>
-    
-    <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img class="img-fluid" src="https://images.unsplash.com/photo-1600444441754-fbc1aaaf906a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"  alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted"><i class="far fa-calendar-alt"></i>&nbsp;July 22th 2020</small></p>
-                  <a href="" class="btn">Continue Reading&nbsp;<i class="fas fa-chevron-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
+    <%}%>
 </div>
 </section>
 
@@ -198,43 +175,26 @@
     <div class="col-md-9">
         <div class="carousel"
             data-flickity='{ "autoPlay": true } '>
+			<%for(var i=0; i<3; i++){%>
                     <div class="carousel-cell">
                         <div class="card" style="width: 18rem;">
-                            <img src="assets/images/Table for the Bokeh.jpg" class="card-img-top" alt="...">
+                            <img src="<%=works[i].coverImage%>" class="card-img-top" alt="...">
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn ">Discover&nbsp;<i class="far fa-bookmark"></i></a>
+                              <h5 class="card-title"><%=works[i].title%></h5>
+                              <p class="card-text"><%=works[i].createdOn%></p>
+                              <a href="<%=works[i].link%>" target="_blank" class="btn ">Discover&nbsp;<i class="far fa-bookmark"></i></a>
                             </div>
                           </div>
                     </div>
-                    <div class="carousel-cell">
-                        <div class="card" style="width: 18rem;">
-                            <img src="assets/images/img1.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn ">Discover&nbsp;<i class="far fa-bookmark"></i></a>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="carousel-cell">
-                        <div class="card" style="width: 18rem;">
-                            <img src="assets/images/One Ginger night.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn">Discover&nbsp;<i class="far fa-bookmark"></i></a>
-                            </div>
-                          </div>
-                    </div>
+			<%}%>
+                    
           </div>
     </div>
     <div class="justify-content-center text-center enjoy col-md-3">
         <h5 class="headers">Enjoy My writings? </h5>
-        <img src="assets/images/typewriter.png" alt="" class="img-fluid">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, tempora.</p>
-        <a href="" class="btn">Find me </a>
+        <img src="/assets/icons/quill.png" alt="" class="img-fluid">
+        <p>interested in discovering all my newest and recent short stories? Then here's my wattpad profile!</p>
+        <a href="https://www.wattpad.com/user/dreamyaltheda" target="_blank" class="btn">Follow me <img src="/assets/icons/wattpad.png"></a>
     </div>
 </div>
 <br><br>
@@ -266,24 +226,25 @@
 <footer>
     <div class="container">
       <div class="logo-container">
-        <img src="/images/logo-night.png" alt="">
+        <img class="img-fluid" src="/images/logo-night.png" alt="">
       </div>
         <div class="row">
-            <div class="col-sm-4">
-                <h5 class="footer-header">About Me</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque voluptatum aliquid nam molestiae ab, odio placeat. Molestias nostrum quibusdam nisi.</p>
+            <div class="col-sm-4 mb-4">
+                <h5 id="about-me" class="footer-header">About Me</h5>
+                <p>My name is Ikram M. a Passionate writer and an enthusiastic Computer Science Student. Althea Blog is created and owned by me which is my first step into sharing my voice with the world through the power of words and digital communication ...</p>
+				<img class="img-fluid" src="/assets/images/mw.jpg">
             </div>
-            <div class="col-sm-4 p-4">
+            <div class="col-sm-4 mb-4">
                 <h4 class="footer-header">find Me on on <i style="font-size: 32px;" class="fab fa-pinterest"></i></span></h4>
-                <a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/iam_dreamy/boards/"></a>
+                <a data-pin-do="embedUser" data-pin-board-width="350" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/iam_dreamy/boards/"></a>
             </div>
-            <div class="col-sm-4">
-              <h5 class="footer-header">Contact me</h5>
-              <ul style="display: flex; flex-direction: column; align-items: center;">
-                <li><a href=""><img src="assets/images/pinterest (1).png" alt="">&nbsp;Pinterest</a></li>
-                <li><a href=""><img src="assets/images/facebook.png" alt="">&nbsp;Facebook</a></li>
-                <li><a href=""><img src="assets/images/spotify.png" alt="">&nbsp;Spotify</a></li>
-                <li><a href=""><img src="assets/images/instagram.png" alt="">&nbsp;instagram</a></li>
+            <div id="find-me" class="col-sm-4">
+            <h5 class="footer-header">Contact me</h5>
+            <ul style="display: flex; flex-direction: column; align-items: center;">
+            
+              <li><a href="https://www.facebook.com/Sombre.huh" target="_blank"><img src="/images/facebook.png" alt="">&nbsp;Facebook</a></li>
+              <li><a href="https://open.spotify.com/user/7x7n2654gf9ftowgt4lc22adk?si=QO3Q7lXhSYe0Eum24-IsJg" target="_blank"><img src="/images/spotify.png" alt="">&nbsp;Spotify</a></li>
+              <li><a href="https://www.instagram.com/dream_.y/" target="_blank"><img src="/images/instagram.png" alt="">&nbsp;instagram</a></li>
 
               </ul>
             </div>
