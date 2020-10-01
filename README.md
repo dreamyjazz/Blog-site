@@ -5,6 +5,8 @@ In this READEME.md file you will find the documentation about **the tools i have
 - bootstrap version alpha 5 --> https://v5.getbootstrap.com/
 - css (no sass involved)
 - Flickity slider --> https://flickity.metafizzy.co/
+- Animate css lirary --> https://animate.style/
+- In addition to JQuery library --> https://jquery.com/
 
 ## on the server side (CMS structure):
 - MongoDB ATLAS for data backup and storage --> https://www.mongodb.com/cloud/atlas
