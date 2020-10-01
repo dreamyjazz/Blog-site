@@ -13,10 +13,12 @@ In this READEME.md file you will find the documentation about **the tools i have
 All the extra tools/packages could be found within the **package.json** file
 
 ## extra resources which have been helpful to me :
-- All the imagesi have used are available on Unsplash platforme--> https://unsplash.com/
+- All the images I have used are available on Unsplash platforme--> https://unsplash.com/
 - The chosen fonts can be found on Google fonts --->  https://fonts.google.com/
-- As for the icons : Font Awesome --> https://fontawesome.com/ and Flat Icon --> https://www.flaticon.com/
+- As for the icons : 
+    1. Font Awesome --> https://fontawesome.com/ 
+    2. Flat Icon --> https://www.flaticon.com/
 - The blog banners had been designed using Canva ---> https://canva.com/
 
 ## Considering the deployment :
-i have used Heroku's free plan hosting  https://www.heroku.com/
+i have used Heroku's free plan hosting  --> https://www.heroku.com/
